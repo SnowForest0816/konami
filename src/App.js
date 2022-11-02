@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import useKonamiCode from './konami-code';
-import Secret from './Secret';
+import useKonamiCode from "./konami-code";
+import Secret from "./Secret";
 
-export default function App () {
-  const [styles, setStyles] = useState({ display: 'none' })
-  const sequence = useKonamiCode(() => setStyles({ ...styles, display: 'block' }));
+export default function App() {
+  const [show, setShow] = useState(false);
+  const sequence = useKonamiCode(() => setShow(true));
 
   return (
-    <div style={{ margin: '60px 0', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    <div
+      style={{
+        margin: "60px 0",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
       <div>{JSON.stringify(sequence)}</div>
-      <div style={styles}>
-        <Secret />
+      <div>
+        {show && <Secret hide={() => setShow(false)}/>}
       </div>
     </div>
-  )
+  );
 }
