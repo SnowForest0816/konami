@@ -4,7 +4,7 @@
     <div class="header">
       <div class="header_left"></div>
       <div class="header_right">
-        <a id="project" class="header_btn mask" @mouseover="startProject('project')">PROJECT</a>
+        <div id="project" class="header_btn" @mouseover="startProject('project')">PROJECT</div>
         <div id="keep" class="header_btn" @mouseover="startKeep('keep')">THE KEEP</div>
         <div id="factions" class="header_btn" @mouseover="startFactions('factions')">FACTIONS</div>
         <div id="world" class="header_btn" @mouseover="startWorld('world')">THE WORLD</div>
